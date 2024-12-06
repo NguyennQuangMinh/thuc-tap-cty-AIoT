@@ -1,0 +1,17 @@
+*.img
+*.mdb
+*.exe
+*.wmv
+*.vmv
+*.mkv
+*.mp4
+*.zip
+*.Zip
+*.PrjPcbStructure
+*.htm
+LIBRARY.IntLib
+History/
+*.rep
+*.csv
+__Previews/*
+History/*

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/testmau">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+        <ImageView
+            android:src="@drawable/img_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:background="@drawable/rounded_corners">
+
+            <TextView
+                android:text="Thông Số Main"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <Switch
+                    android:text="Chế độ led "
+                    android:textSize="20sp"
+                    android:id="@+id/swichAuto"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textSize="20sp"
+                    android:text="Off"
+                    android:gravity="center"
+                    android:id="@+id/tvOnOffAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- New Section for Temperature and Humidity Thresholds -->
+            <TextView
+                android:text="Cài đặt ngưỡng nhiệt độ và độ ẩm"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <TextView
+                    android:text="Ngưỡng nhiệt độ:"
+                    android:textSize="20sp"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etNhietDoThreshold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Nhập giá trị" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <TextView
+                    android:text="Ngưỡng độ ẩm:"
+                    android:textSize="20sp"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/etDoAmThreshold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Nhập giá trị" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <CheckBox
+                    android:button="@drawable/checkbox_custom"
+                    android:text="Chế độ :"
+                    android:textSize="20dp"
+                    android:id="@+id/checkBoxAuto"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="Auto"
+                    android:textSize="20dp"
+                    android:id="@+id/tvAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="Giá trị nhiệt độ :"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_weight="5"
+                    android:id="@+id/tvAutoNhietDo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="30"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/img_7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_corners">
+
+                <TextView
+                    android:layout_weight="0.5"
+                    android:text="Giá trị độ ẩm :"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_weight="5"
+                    android:textSize="20sp"
+                    android:text="75"
+                    android:gravity="center"
+                    android:id="@+id/tvAutoDoAm"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/img_9" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:weightSum="2">
+<!--                <Button-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:id="@+id/btShowListDHT"-->
+<!--                    android:text="List DHT"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:background="@drawable/button_background"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="8dp"/>-->
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/btLineChart"
+                    android:text="Line Dht"
+                    android:textSize="18sp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:background="@drawable/rounded_corners">
+
+            <TextView
+                android:text="Cài đặt thời gian"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_weight="1"
+                    android:text="Set Date"
+                    android:textSize="18sp"
+                    android:id="@+id/setDateAuto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:id="@+id/tvsetdateAuto"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/textview_background"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_weight="1"
+                    android:text="Set Time"
+                    android:textSize="18sp"
+                    android:id="@+id/setTimeAuto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:id="@+id/tvSetTimeAuto"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/textview_background"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:weightSum="2">
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/btAddAuto"
+                    android:text="ADD"
+                    android:textSize="18sp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/btShowList"
+                    android:text="Show List"
+                    android:textSize="18sp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/btDisConnectBle"
+                    android:text="Diss Ble"
+                    android:textSize="18sp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

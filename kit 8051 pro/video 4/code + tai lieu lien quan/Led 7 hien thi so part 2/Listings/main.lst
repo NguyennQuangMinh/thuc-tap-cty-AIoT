@@ -1,0 +1,69 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              10/08/2024 10:22:06 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\hoc\8051\Keil_C_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+                    -stings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "C:\hoc\8051\bai_tap\Library\Delay\Delay.h"
+   3          
+   4          sbit LSA = P2^2;
+   5          sbit LSB = P2^3;
+   6          sbit LSC = P2^4;
+   7          
+   8          unsigned char code DIG_CODE[16]={ 0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+   9                                            0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71}; // ma led 7 thanh tu 0->9 va tu A->F
+  10          
+  11          void main()
+  12          {
+  13   1        // hien thi ra 8 con led so tu 0->7
+  14   1        unsigned char i;
+  15   1        while(1)
+  16   1        {
+  17   2          for(i=0; i<8; i++) // quet led 7 doan
+  18   2          {
+  19   3            switch(i)
+  20   3            {
+  21   4              case(0):
+  22   4                LSA = 0; LSB = 0; LSC = 0; break;
+  23   4              case(1):
+  24   4                LSA = 1; LSB = 0; LSC = 0; break;
+  25   4              case(2):
+  26   4                LSA = 0; LSB = 1; LSC = 0; break;
+  27   4              case(3):
+  28   4                LSA = 1; LSB = 1; LSC = 0; break;
+  29   4              case(4):
+  30   4                LSA = 0; LSB = 0; LSC = 1; break;
+  31   4              case(5):
+  32   4                LSA = 1; LSB = 0; LSC = 1; break;
+  33   4              case(6):
+  34   4                LSA = 0; LSB = 1; LSC = 1; break;
+  35   4              case(7):
+  36   4                LSA = 1; LSB = 1; LSC = 1; break;
+  37   4            }
+  38   3            P0 = DIG_CODE[i];
+  39   3            Delay_ms(1);
+  40   3            P0 = 0x00;
+  41   3          }
+  42   2        }
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    116    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.7.0   MAIN                                                              10/08/2024 10:22:06 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

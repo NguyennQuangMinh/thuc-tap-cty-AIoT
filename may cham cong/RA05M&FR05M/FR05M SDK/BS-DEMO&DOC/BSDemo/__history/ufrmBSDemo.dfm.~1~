@@ -1,0 +1,616 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'BS Demo'
+  ClientHeight = 780
+  ClientWidth = 962
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 41
+    Width = 962
+    Height = 739
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = #20219#21153#21629#20196
+      object Panel2: TPanel
+        Left = 0
+        Top = 566
+        Width = 954
+        Height = 145
+        Align = alBottom
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        TabOrder = 0
+        object ToolBar3: TToolBar
+          Left = 0
+          Top = 0
+          Width = 954
+          Height = 23
+          AutoSize = True
+          ButtonHeight = 21
+          ButtonWidth = 31
+          Caption = 'ToolBar2'
+          Flat = False
+          ShowCaptions = True
+          TabOrder = 0
+          object ToolButton1: TToolButton
+            Left = 0
+            Top = 0
+            Caption = #28165#31354
+            ImageIndex = 0
+            OnClick = ToolButton1Click
+          end
+        end
+        object mmoReceiveCmd: TMemo
+          Left = 0
+          Top = 23
+          Width = 954
+          Height = 122
+          Align = alClient
+          ReadOnly = True
+          ScrollBars = ssBoth
+          TabOrder = 1
+        end
+      end
+      object TPanel
+        Left = 0
+        Top = 0
+        Width = 954
+        Height = 566
+        Align = alClient
+        BevelOuter = bvNone
+        ShowCaption = False
+        TabOrder = 1
+        object GroupBox1: TGroupBox
+          Left = 0
+          Top = 309
+          Width = 954
+          Height = 257
+          Align = alBottom
+          Caption = #21629#20196#32467#26524
+          TabOrder = 0
+          object TPanel
+            Left = 767
+            Top = 15
+            Width = 185
+            Height = 240
+            Align = alRight
+            BevelOuter = bvNone
+            TabOrder = 0
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 185
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #32467#26524#20108#36827#21046#25968#25454
+              ExplicitWidth = 84
+            end
+            object lbResultBinary: TListBox
+              Left = 0
+              Top = 13
+              Width = 185
+              Height = 227
+              Align = alClient
+              ItemHeight = 13
+              TabOrder = 0
+            end
+          end
+          object TPanel
+            Left = 187
+            Top = 15
+            Width = 580
+            Height = 240
+            Align = alClient
+            BevelOuter = bvNone
+            TabOrder = 1
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 580
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #32467#26524#20307
+              ExplicitWidth = 36
+            end
+            object mmoResultBody: TMemo
+              Left = 0
+              Top = 13
+              Width = 580
+              Height = 227
+              Align = alClient
+              ScrollBars = ssBoth
+              TabOrder = 0
+            end
+          end
+          object TPanel
+            Left = 2
+            Top = 15
+            Width = 185
+            Height = 240
+            Align = alLeft
+            BevelOuter = bvNone
+            TabOrder = 2
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 185
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #32467#26524#22836
+              ExplicitWidth = 36
+            end
+            object mmoResultHeader: TMemo
+              Left = 0
+              Top = 13
+              Width = 185
+              Height = 227
+              Align = alClient
+              ScrollBars = ssBoth
+              TabOrder = 0
+            end
+          end
+        end
+        object GroupBox2: TGroupBox
+          Left = 0
+          Top = 44
+          Width = 954
+          Height = 265
+          Align = alClient
+          Caption = #21629#20196
+          TabOrder = 1
+          object TPanel
+            Left = 767
+            Top = 15
+            Width = 185
+            Height = 248
+            Align = alRight
+            BevelOuter = bvNone
+            TabOrder = 0
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 185
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #21629#20196#20108#36827#21046#25968#25454
+              ExplicitWidth = 84
+            end
+            object SpeedButton1: TSpeedButton
+              Left = 0
+              Top = 226
+              Width = 185
+              Height = 22
+              Align = alBottom
+              Caption = #25552#20132#21629#20196
+              OnClick = SpeedButton1Click
+              ExplicitLeft = 2
+              ExplicitTop = 152
+            end
+            object Label1: TLabel
+              Left = 0
+              Top = 13
+              Width = 185
+              Height = 26
+              Align = alTop
+              Caption = #35828#26126#65306#21629#20196#20013#21547#26377#20108#36827#21046#25968#25454#26102#65292#13#10#38656#35201#36873#25321#25991#20214
+              ExplicitWidth = 180
+            end
+            object lbCommandBinary: TListBox
+              Left = 0
+              Top = 39
+              Width = 185
+              Height = 164
+              Align = alClient
+              ItemHeight = 13
+              TabOrder = 0
+              ExplicitLeft = 2
+              ExplicitTop = 7
+              ExplicitHeight = 177
+            end
+            object ToolBar2: TToolBar
+              Left = 0
+              Top = 203
+              Width = 185
+              Height = 23
+              Align = alBottom
+              AutoSize = True
+              ButtonHeight = 21
+              ButtonWidth = 31
+              Caption = 'ToolBar2'
+              Flat = False
+              ShowCaptions = True
+              TabOrder = 1
+              ExplicitTop = 182
+              object ToolButton15: TToolButton
+                Left = 0
+                Top = 0
+                Caption = #22686#21152
+                ImageIndex = 0
+                OnClick = ToolButton15Click
+              end
+              object ToolButton16: TToolButton
+                Left = 31
+                Top = 0
+                Caption = #20462#25913
+                ImageIndex = 1
+                OnClick = ToolButton16Click
+              end
+              object ToolButton17: TToolButton
+                Left = 62
+                Top = 0
+                Caption = #21024#38500
+                ImageIndex = 2
+                OnClick = ToolButton17Click
+              end
+              object ToolButton2: TToolButton
+                Left = 93
+                Top = 0
+                Caption = #28165#31354
+                ImageIndex = 3
+                OnClick = ToolButton2Click
+              end
+            end
+          end
+          object TPanel
+            Left = 187
+            Top = 15
+            Width = 580
+            Height = 248
+            Align = alClient
+            BevelOuter = bvNone
+            TabOrder = 1
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 580
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #21629#20196#20307
+              ExplicitWidth = 36
+            end
+            object PageControl2: TPageControl
+              Left = 0
+              Top = 13
+              Width = 580
+              Height = 235
+              ActivePage = TabSheet4
+              Align = alClient
+              TabOrder = 0
+              object TabSheet4: TTabSheet
+                Caption = #25968#25454
+                object mmoCommandBody: TMemo
+                  Left = 0
+                  Top = 0
+                  Width = 572
+                  Height = 207
+                  Align = alClient
+                  ScrollBars = ssBoth
+                  TabOrder = 0
+                end
+              end
+              object TabSheet5: TTabSheet
+                Caption = #26679#20363
+                ImageIndex = 1
+                object mmoCommandBodySample: TMemo
+                  Left = 0
+                  Top = 0
+                  Width = 572
+                  Height = 207
+                  Align = alClient
+                  ReadOnly = True
+                  ScrollBars = ssBoth
+                  TabOrder = 0
+                end
+              end
+            end
+          end
+          object TPanel
+            Left = 2
+            Top = 15
+            Width = 185
+            Height = 248
+            Align = alLeft
+            BevelOuter = bvNone
+            TabOrder = 2
+            object TLabel
+              Left = 0
+              Top = 0
+              Width = 185
+              Height = 13
+              Align = alTop
+              Alignment = taCenter
+              Caption = #21629#20196#22836
+              ExplicitWidth = 36
+            end
+            object mmoCommandtHeader: TMemo
+              Left = 0
+              Top = 13
+              Width = 185
+              Height = 235
+              Align = alClient
+              ScrollBars = ssBoth
+              TabOrder = 0
+            end
+          end
+        end
+        object ToolBar1: TToolBar
+          Left = 0
+          Top = 0
+          Width = 954
+          Height = 44
+          AutoSize = True
+          ButtonHeight = 21
+          ButtonWidth = 79
+          Caption = 'ToolBar1'
+          Flat = False
+          ShowCaptions = True
+          TabOrder = 2
+          object btnCmd01: TToolButton
+            Left = 0
+            Top = 0
+            AllowAllUp = True
+            Caption = #33719#24471#30331#35760#25968#25454
+            Grouped = True
+            ImageIndex = 0
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd02: TToolButton
+            Left = 79
+            Top = 0
+            AllowAllUp = True
+            Caption = #20889#20837#30331#35760#25968#25454
+            Grouped = True
+            ImageIndex = 1
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd03: TToolButton
+            Left = 158
+            Top = 0
+            AllowAllUp = True
+            Caption = #21516#27493#26102#38388
+            Grouped = True
+            ImageIndex = 2
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd04: TToolButton
+            Left = 237
+            Top = 0
+            AllowAllUp = True
+            Caption = #37325#21551#35774#22791
+            Grouped = True
+            ImageIndex = 3
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd05: TToolButton
+            Left = 316
+            Top = 0
+            AllowAllUp = True
+            Caption = #21024#38500#20154#21592
+            Grouped = True
+            ImageIndex = 4
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd06: TToolButton
+            Left = 395
+            Top = 0
+            AllowAllUp = True
+            Caption = #20462#25913#22995#21517
+            Grouped = True
+            ImageIndex = 5
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd07: TToolButton
+            Left = 474
+            Top = 0
+            AllowAllUp = True
+            AutoSize = True
+            Caption = #20462#25913#29992#25143#26435#38480
+            Grouped = True
+            ImageIndex = 6
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd08: TToolButton
+            Left = 557
+            Top = 0
+            AllowAllUp = True
+            Caption = #35774#32622#27880#20876#21151#33021
+            Grouped = True
+            ImageIndex = 7
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd09: TToolButton
+            Left = 636
+            Top = 0
+            AllowAllUp = True
+            Caption = #33719#24471#20154#21592#21015#34920
+            Grouped = True
+            ImageIndex = 8
+            Wrap = True
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd10: TToolButton
+            Left = 0
+            Top = 21
+            AllowAllUp = True
+            Caption = #33719#21462#26222#36890#35760#24405
+            Grouped = True
+            ImageIndex = 9
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd11: TToolButton
+            Left = 79
+            Top = 21
+            AllowAllUp = True
+            Caption = #35774#23450#20154#21592#29366#24577
+            Grouped = True
+            ImageIndex = 10
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd12: TToolButton
+            Left = 158
+            Top = 21
+            AllowAllUp = True
+            Caption = #35774#23450#35774#22791#21517#31216
+            Grouped = True
+            ImageIndex = 11
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd13: TToolButton
+            Left = 237
+            Top = 21
+            AllowAllUp = True
+            Caption = #28165#38500#25152#26377#35760#24405
+            Grouped = True
+            ImageIndex = 12
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd14: TToolButton
+            Left = 316
+            Top = 21
+            AllowAllUp = True
+            Caption = #28165#38500#30331#35760#25968#25454
+            Grouped = True
+            ImageIndex = 13
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd15: TToolButton
+            Left = 395
+            Top = 21
+            AllowAllUp = True
+            Caption = #33719#24471#26426#22120#29366#24577
+            Grouped = True
+            ImageIndex = 14
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd16: TToolButton
+            Left = 474
+            Top = 21
+            AllowAllUp = True
+            Caption = #19978#20256#30331#35760#25968#25454
+            Grouped = True
+            ImageIndex = 15
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd17: TToolButton
+            Left = 553
+            Top = 21
+            AllowAllUp = True
+            Caption = #19979#36733#30331#35760#25968#25454
+            Grouped = True
+            ImageIndex = 16
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd18: TToolButton
+            Left = 632
+            Top = 21
+            AllowAllUp = True
+            Caption = #35774#32622#26381#21153#22120
+            Grouped = True
+            ImageIndex = 17
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+          object btnCmd19: TToolButton
+            Left = 711
+            Top = 21
+            AllowAllUp = True
+            Caption = #26356#26032#22266#20214
+            Grouped = True
+            ImageIndex = 18
+            Style = tbsCheck
+            OnClick = btnCmd01Click
+          end
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+      ImageIndex = 1
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'TabSheet3'
+      ImageIndex = 2
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 962
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    ShowCaption = False
+    TabOrder = 1
+    object lblPort: TLabel
+      Left = 15
+      Top = 14
+      Width = 48
+      Height = 13
+      Caption = #31471#21475#21495#65306
+    end
+    object btnServer: TButton
+      Left = 216
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Start'
+      TabOrder = 0
+      OnClick = btnServerClick
+    end
+    object EditPort: TEdit
+      Left = 66
+      Top = 10
+      Width = 121
+      Height = 21
+      TabOrder = 1
+      Text = '802'
+    end
+  end
+  object ApplicationEvents1: TApplicationEvents
+    OnIdle = ApplicationEvents1Idle
+    Left = 864
+    Top = 8
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = '*.dat|*.dat'
+    FilterIndex = 0
+    Left = 355
+    Top = 209
+  end
+end

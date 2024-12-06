@@ -1,0 +1,2 @@
+Q:\FKAttend\Samples\FFI_Sample\c#\bin\Release\FKAttendDllCSSample.exe.config
+H:\FKAttend\Samples\FFI_Sample\c#\bin\Release\FKAttendDllCSSample.exe.config

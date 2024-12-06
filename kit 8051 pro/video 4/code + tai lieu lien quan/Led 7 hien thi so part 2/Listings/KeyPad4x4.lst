@@ -1,0 +1,85 @@
+C51 COMPILER V9.60.7.0   KEYPAD4X4                                                         08/28/2024 22:14:38 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEYPAD4X4
+OBJECT MODULE PLACED IN .\Objects\KeyPad4x4.obj
+COMPILER INVOKED BY: C:\hoc\8051\Keil_C_v5\C51\BIN\C51.EXE ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c OPTIMIZE(8,SPEED) BRO
+                    -WSE DEBUG OBJECTEXTEND PRINT(.\Listings\KeyPad4x4.lst) TABS(2) OBJECT(.\Objects\KeyPad4x4.obj)
+
+line level    source
+
+   1          #include "KeyPad4x4.h"
+   2          #include "main.h"
+   3          #include "port.h"
+*** WARNING C318 IN LINE 3 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: can't open file 'port.h'
+   4          
+   5          unsigned char KeyPress()
+   6          {
+   7   1        unsigned key = 0;
+   8   1        
+   9   1        //cho cot 1 = 0;
+  10   1        COL1 = 0;
+*** ERROR C202 IN LINE 10 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL1': undefined identifier
+  11   1        //kiem tra lan luot cac hang
+  12   1        if(ROW1 == 0) key = 1;
+*** ERROR C202 IN LINE 12 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW1': undefined identifier
+  13   1        if(ROW2 == 0) key = 2;
+*** ERROR C202 IN LINE 13 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW2': undefined identifier
+  14   1        if(ROW3 == 0) key = 3;
+*** ERROR C202 IN LINE 14 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW3': undefined identifier
+  15   1        if(ROW4 == 0) key = 4;
+*** ERROR C202 IN LINE 15 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW4': undefined identifier
+  16   1        COL1 = 1;
+*** ERROR C202 IN LINE 16 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL1': undefined identifier
+  17   1        
+  18   1        //cho cot 2 = 0;
+  19   1        COL2 = 0;
+*** ERROR C202 IN LINE 19 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL2': undefined identifier
+  20   1        //kiem tra lan luot cac hang
+  21   1        if(ROW1 == 0) key = 5;
+*** ERROR C202 IN LINE 21 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW1': undefined identifier
+  22   1        if(ROW2 == 0) key = 6;
+*** ERROR C202 IN LINE 22 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW2': undefined identifier
+  23   1        if(ROW3 == 0) key = 7;
+*** ERROR C202 IN LINE 23 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW3': undefined identifier
+  24   1        if(ROW4 == 0) key = 8;
+*** ERROR C202 IN LINE 24 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW4': undefined identifier
+  25   1        COL2 = 1;
+*** ERROR C202 IN LINE 25 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL2': undefined identifier
+  26   1        
+  27   1        //cho cot 3 = 0;
+  28   1        COL3 = 0;
+*** ERROR C202 IN LINE 28 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL3': undefined identifier
+  29   1        //kiem tra lan luot cac hang
+  30   1        if(ROW1 == 0) key = 9;
+*** ERROR C202 IN LINE 30 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW1': undefined identifier
+  31   1        if(ROW2 == 0) key = 10;
+*** ERROR C202 IN LINE 31 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW2': undefined identifier
+  32   1        if(ROW3 == 0) key = 11;
+*** ERROR C202 IN LINE 32 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW3': undefined identifier
+  33   1        if(ROW4 == 0) key = 12;
+*** ERROR C202 IN LINE 33 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW4': undefined identifier
+  34   1        COL3 = 1;
+*** ERROR C202 IN LINE 34 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL3': undefined identifier
+  35   1        
+C51 COMPILER V9.60.7.0   KEYPAD4X4                                                         08/28/2024 22:14:38 PAGE 2   
+
+  36   1        //cho cot 4 = 0;
+  37   1        COL4 = 0;
+*** ERROR C202 IN LINE 37 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL4': undefined identifier
+  38   1        //kiem tra lan luot cac hang
+  39   1        if(ROW1 == 0) key = 13;
+*** ERROR C202 IN LINE 39 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW1': undefined identifier
+  40   1        if(ROW2 == 0) key = 14;
+*** ERROR C202 IN LINE 40 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW2': undefined identifier
+  41   1        if(ROW3 == 0) key = 15;
+*** ERROR C202 IN LINE 41 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW3': undefined identifier
+  42   1        if(ROW4 == 0) key = 16;
+*** ERROR C202 IN LINE 42 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'ROW4': undefined identifier
+  43   1        COL4 = 1;
+*** ERROR C202 IN LINE 43 OF ..\..\..\Library\KeyPad 4x4\KeyPad4x4.c: 'COL4': undefined identifier
+  44   1        
+  45   1        return key;
+  46   1      }
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  24 ERROR(S)

@@ -1,0 +1,379 @@
+unit ufrmBSDemo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ToolWin, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Buttons, IdHTTPWebBrokerBridge, Web.HTTPApp, Vcl.AppEvnts;
+
+type
+  TForm1 = class(TForm)
+    GroupBox1: TGroupBox;
+    mmoResultBody: TMemo;
+    mmoResultHeader: TMemo;
+    lbResultBinary: TListBox;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    mmoReceiveCmd: TMemo;
+    GroupBox2: TGroupBox;
+    lbCommandBinary: TListBox;
+    mmoCommandtHeader: TMemo;
+    ToolBar2: TToolBar;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
+    ToolBar1: TToolBar;
+    btnCmd01: TToolButton;
+    btnCmd02: TToolButton;
+    btnCmd03: TToolButton;
+    btnCmd04: TToolButton;
+    btnCmd05: TToolButton;
+    btnCmd06: TToolButton;
+    btnCmd07: TToolButton;
+    btnCmd08: TToolButton;
+    btnCmd09: TToolButton;
+    btnCmd10: TToolButton;
+    btnCmd11: TToolButton;
+    btnCmd12: TToolButton;
+    btnCmd13: TToolButton;
+    btnCmd14: TToolButton;
+    btnCmd15: TToolButton;
+    btnCmd16: TToolButton;
+    btnCmd17: TToolButton;
+    btnCmd18: TToolButton;
+    btnCmd19: TToolButton;
+    ToolBar3: TToolBar;
+    ToolButton1: TToolButton;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    ApplicationEvents1: TApplicationEvents;
+    PageControl2: TPageControl;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
+    mmoCommandBody: TMemo;
+    mmoCommandBodySample: TMemo;
+    Panel1: TPanel;
+    lblPort: TLabel;
+    btnServer: TButton;
+    EditPort: TEdit;
+    OpenDialog1: TOpenDialog;
+    ToolButton2: TToolButton;
+    Label1: TLabel;
+    procedure ToolButton1Click(Sender: TObject);
+    procedure btnCmd01Click(Sender: TObject);
+    procedure btnServerClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure ToolButton15Click(Sender: TObject);
+    procedure ToolButton16Click(Sender: TObject);
+    procedure ToolButton17Click(Sender: TObject);
+    procedure ToolButton2Click(Sender: TObject);
+  private
+    FServer: TIdHTTPWebBrokerBridge;
+    FSendStream: TMemoryStream;
+    FTransList: TList;
+    FCmdCode: Integer;
+    FNeedSend: Boolean;
+    { Private declarations }
+  public
+    function GetSendData(var TransId: Integer; var CmdCode: string; var Stream: TStream): Boolean;
+    function GetResultCmdType(const TransId: Integer): Integer;
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  CurrentPath: string;
+
+implementation
+
+{$R *.dfm}
+
+const
+  CMD_CODE_STRS: array[1..19] of string =(
+    'GET_ENROLL_DATA'      ,    //1
+    'SET_ENROLL_DATA'      ,    //2
+    'SET_TIME'             ,    //3
+    'RESET_FK'             ,    //4
+    'DELETE_USER'          ,    //5
+    'SET_USER_NAME'        ,    //6
+    'SET_USER_PRIVILEGE'   ,    //7
+    'ENABLE_ENROLL_FUNC'   ,    //8
+    'GET_USER_ID_LIST'     ,    //9
+    'GET_LOG_DATA'         ,    //10
+    'ENABLE_USER'          ,    //11
+    'SET_FK_NAME'          ,    //12
+    'CLEAR_LOG_DATA'       ,    //13
+    'CLEAR_ENROLL_DATA'    ,    //14
+    'GET_DEVICE_STATUS'    ,    //15
+    'SET_USER_INFO'        ,    //16
+    'GET_USER_INFO'        ,    //17
+    'SET_WEB_SERVER_INFO'  ,    //18
+    'UPDATE_FIRMWARE'      );   //19
+
+
+procedure TForm1.ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
+begin
+  if FServer.Active then btnServer.Caption := 'Stop' else btnServer.Caption := 'Start';
+  EditPort.Enabled := not FServer.Active;
+end;
+
+procedure TForm1.btnCmd01Click(Sender: TObject);
+var
+  json: string;
+  sl: TStrings;
+begin
+  if FNeedSend then
+  begin
+    Application.MessageBox('The command has not been processed, please wait', 'Tips');
+    Exit;
+  end;
+  FCmdCode := TToolButton(Sender).Index + 1;
+  sl := mmoCommandBodySample.Lines;
+  sl.BeginUpdate;
+  sl.Clear;
+  case FCmdCode of
+    1:
+    begin
+      json := '{"user_id":"8","backup_number":10}';
+      sl.Add(json);
+      sl.Add('user_id ,character string, enroll id to be obtained');
+      sl.Add('backup_number integer, Registration data backup number to obtain');
+    end;
+    2: ;
+    3:
+    begin
+      json := Format('{"time":"%s"}', [FormatDateTime('YYYYMMDDhhmmss', Now())]);
+      sl.Add(json);
+      sl.Add('time ,character string,Set the time format of the device to YYYYMMDDhhmmss');
+    end;
+    4:
+    begin
+      json := '';
+      sl.Add('No parameter');
+    end;
+    5:
+    begin
+      json := '{"user_id": "1"}';
+      sl.Add(json);
+      sl.Add('user_id,character string, Registration number to be deleted');
+    end;
+    6:
+    begin
+      json := '{"user_id": "1", "user_name": "test"}';
+      sl.Add(json);
+      sl.Add('user_id ,character string,Registration number to be modified');
+      sl.Add('user_name,character string,Name of the registration number to be modified');
+    end;
+    7:
+    begin
+      json := '{"user_id": "1", "user_privilege": "USER"}';
+      sl.Add(json);
+      sl.Add('user_id 字符串 需要修改的登记号');
+      sl.Add('user_privilege 字符串 需要修改的登记号的权限,取值有三种：USER,MANAGER,BACKUP');
+    end;
+    8:
+    begin
+      json := '{"enable_flag":"ON"}';
+      sl.Add(json);
+      sl.Add('enable_flag 字符串 开启或关闭机器的用户注册功能，取值有两种：ON,OFF');
+    end;
+    9:
+    begin
+      json := '';
+      sl.Add('无参数');
+    end;
+    10:
+    begin
+      json := Format('{"begin_time":"%s","end_time":"%s"}', [FormatDateTime('YYYYMMDDhhmmss', Now() - 31),  FormatDateTime('YYYYMMDDhhmmss', Now())]);
+      sl.Add(json);
+      sl.Add('begin_time 字符串 时间格式为YYYYMMDDhhmmss 字段为空的或者不存在字段本身的时候，会获取 end_time以前记录的所有考勤记录数据');
+      sl.Add('end_time 字符串 时间格式为YYYYMMDDhhmmss 字段为空的或者不存在字段本身的时候，会获取begin_time以后记录的所有考勤记录数据');
+      sl.Add('若两个字段为无效值，会获取机器里面的所有考勤记录数据。');
+    end;
+    11:
+    begin
+      json := '{"user_id": "1", "enable_flag": "ON"}';
+      sl.Add(json);
+      sl.Add('user_id 字符串 需要修改的登记号');
+      sl.Add('user_name 字符串 需要修改的登记号的使能,取值有两种：ON,OFF');
+    end;
+    12:
+    begin
+      json := '{"fk_name": "FK New Name"}';
+      sl.Add(json);
+      sl.Add('fk_name 字符串 要设置机器的新名称');
+    end;
+    13:
+    begin
+      json := '';
+      sl.Add('无参数');
+    end;
+    14:
+    begin
+      json := '';
+      sl.Add('无参数');
+    end;
+    15:
+    begin
+      json := '';
+      sl.Add('无参数');
+    end;
+    16:
+    begin
+      json := '{"user_id": "1", "user_name": "test", "user_privilege": "USER","enroll_data_array":[{"backup_number":1,"enroll_data":"BIN_1"}],"user_photo":"BIN_x"}';
+      sl.Add(json);
+      sl.Add('user_id 字符串 要上传的登记号');
+      sl.Add('user_name 字符串 要上传的登记号的姓名');
+      sl.Add('user_privilege 字符串 要上传的登记号的权限,取值有三种：USER,MANAGER,BACKUP');
+      sl.Add('enroll_data_array 数组 要上传的登记数据');
+      sl.Add('enroll_data_array->backup_number 整数 要上传的登记数据备份号');
+      sl.Add('enroll_data_array->enroll_data 字符串 要上传的登记数据二进制数据用BIN_x指示,x是从1开始计数');
+      sl.Add('user_photo 字符串 要上传的登记数据二进制数据用BIN_x指示');
+      sl.Add('注意：数据是BIN_x，表示本数据是二进制数据，跟在本结构之后是一段二进制数据，x是二进制序号，从1开始计数');
+      sl.Add('二进制数据格式4BYTE（DataLen）DataLen个BYTE的数据，多个二进制数据，就由多个本结构组成');
+    end;
+    17:
+    begin
+      json := '{"user_id": "1"}';
+      sl.Add(json);
+      sl.Add('user_id 字符串 要下载的登记号');
+      sl.Add('收到的数据结构类似于上传登记数据') ;
+      sl.Add('user_name 字符串 下载的登记号的姓名');
+      sl.Add('user_privilege 字符串 下载的登记号的权限');
+      sl.Add('enroll_data_array 数组 下载的登记数据');
+      sl.Add('enroll_data_array->backup_number 整数 下载的登记数据备份号');
+      sl.Add('enroll_data_array->enroll_data 字符串 下载的登记数据二进制数据用BIN_x指示,x是从1开始计数');
+      sl.Add('user_photo 字符串 下载的登记数据二进制数据用BIN_x指示');
+      sl.Add('注意：数据是BIN_x，表示本数据是二进制数据，跟在本结构之后是一段二进制数据，x是二进制序号，从1开始计数');
+      sl.Add('二进制数据格式4BYTE（DataLen）DataLen个BYTE的数据，多个二进制数据，就由多个本结构组成');
+    end;
+    18:
+    begin
+      json := '{"ip_address": "192.168.1.100", "port": "8000"}';
+      sl.Add(json);
+      sl.Add('ip_address 字符串 要设置的服务器IP地址');
+      sl.Add('port 字符串 要设置的服务器服务端口号');
+    end;
+    19:
+    begin
+      json := '{"firmware_file_name":"alv4311ffi50b_um","firmware_bin_data":"BIN_1"}';
+      sl.Add(json);
+      sl.Add('firmware_file_name 字符串 要升级的固件名，在收到的receive_cmd中可以查看');
+      sl.Add('firmware_bin_data 字符串 固定为BIN_1，因为只有一个二进制 要升级的固件二进制数据');
+    end;
+  end;
+  sl.EndUpdate;
+  mmoCommandBody.Text := json;
+  lbCommandBinary.Clear;
+end;
+
+procedure TForm1.btnServerClick(Sender: TObject);
+begin
+  if FServer.Active then FServer.Active := False
+  else begin
+    FServer.Bindings.Clear;
+    FServer.DefaultPort := StrToInt(EditPort.Text);
+    FServer.Active := True;
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  CurrentPath := ExtractFilePath(ParamStr(0));
+  FSendStream := TMemoryStream.Create;
+  FTransList := TList.Create;
+  FServer := TIdHTTPWebBrokerBridge.Create(Self);
+  ForceDirectories(CurrentPath + 'data');
+end;
+
+function TForm1.GetResultCmdType(const TransId: Integer): Integer;
+begin
+  Result := Integer(FTransList[TransId - 1]);
+end;
+
+function TForm1.GetSendData(var TransId: Integer; var CmdCode: string; var Stream: TStream): Boolean;
+begin
+  if FNeedSend then FNeedSend := False
+  else Exit(False);
+
+  //只是为了显示有开发者看命令头里的信息
+  mmoCommandtHeader.Clear;
+  mmoCommandtHeader.Lines.Add(Format('%s: %s', ['Content-Type', 'application/octet-stream']));
+  mmoCommandtHeader.Lines.Add(Format('%s: %s', ['response_code', 'OK']));
+  mmoCommandtHeader.Lines.Add(Format('%s: %d', ['trans_id', TransId]));
+  mmoCommandtHeader.Lines.Add(Format('%s: %s', ['cmd_code', cmdcode]));
+  mmoCommandtHeader.Lines.Add(Format('%s: %d', ['blk_len',FSendStream.Size]));
+  mmoCommandtHeader.Lines.Add(Format('%s: %d', ['blk_no', 0]));
+
+  TransId := FTransList.Add(Pointer(FCmdCode)) + 1;
+  CmdCode := CMD_CODE_STRS[FCmdCode];
+  stream := TMemoryStream.Create;
+  Stream.CopyFrom(FSendStream, 0);
+  Result := True;
+end;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+var
+  s: AnsiString;
+  i: Integer;
+  fs: TFileStream;
+  len: Integer;
+begin
+  if FNeedSend then
+  begin
+    Application.MessageBox('命令还未处理，请稍候', '提示');
+    Exit;
+  end;
+  FSendStream.Size := 0;
+  //s := AnsiString(mmoCommandBody.Text);
+  //使用UTF8编码方式发送字符串
+  s := AnsiString(PAnsiChar(TEncoding.UTF8.GetBytes(mmoCommandBody.Text)));
+  len := Length(s) + 1;
+  FSendStream.Write(len, SizeOf(Integer));
+  FSendStream.Write(PAnsiChar(s)^, len);
+  for i := 0 to lbCommandBinary.Count - 1 do
+  begin
+    fs := TFileStream.Create(lbCommandBinary.Items[i], fmOpenRead or fmShareDenyNone);
+    len := fs.Size;
+    FSendStream.Write(len, SizeOf(Integer));
+    FSendStream.CopyFrom(fs, 0);
+    fs.Free;
+  end;
+
+  FNeedSend := True;
+end;
+
+procedure TForm1.ToolButton15Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute() then
+    lbCommandBinary.Items.Add(OpenDialog1.FileName);
+end;
+
+procedure TForm1.ToolButton16Click(Sender: TObject);
+begin
+  if (lbCommandBinary.ItemIndex >= 0) and OpenDialog1.Execute() then
+    lbCommandBinary.Items[lbCommandBinary.ItemIndex] := OpenDialog1.FileName;
+
+end;
+
+procedure TForm1.ToolButton17Click(Sender: TObject);
+begin
+  lbCommandBinary.DeleteSelected;
+end;
+
+procedure TForm1.ToolButton1Click(Sender: TObject);
+begin
+  mmoReceiveCmd.Clear;
+end;
+
+procedure TForm1.ToolButton2Click(Sender: TObject);
+begin
+  lbCommandBinary.Clear;
+end;
+
+end.

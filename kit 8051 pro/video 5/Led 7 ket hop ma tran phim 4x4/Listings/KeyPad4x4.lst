@@ -1,0 +1,83 @@
+C51 COMPILER V9.60.7.0   KEYPAD4X4                                                         10/11/2024 08:23:44 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEYPAD4X4
+OBJECT MODULE PLACED IN .\Objects\KeyPad4x4.obj
+COMPILER INVOKED BY: C:\hoc\8051\Keil_C_v5\C51\BIN\C51.EXE C:\hoc\8051\bai_tap\Library\KeyPad 4x4\KeyPad4x4.c OMF2 OPTIM
+                    -IZE(8,SPEED) BROWSE DEBUG PRINT(.\Listings\KeyPad4x4.lst) TABS(2) OBJECT(.\Objects\KeyPad4x4.obj)
+
+line level    source
+
+   1          // khai bao chan ket noi cua key pad
+   2          //sbit COL_1 = P1^0;
+   3          //sbit COL_2 = P1^1;
+   4          //sbit COL_3 = P1^2;
+   5          //sbit COL_4 = P1^3;
+   6          
+   7          //sbit ROW_1 = P1^4;
+   8          //sbit ROW_2 = P1^5;
+   9          //sbit ROW_3 = P1^6;
+  10          //sbit ROW_4 = P1^7;
+  11          
+  12          #include"Keypad4x4.h"
+  13          #include"main.h"
+  14          #include"port.h"
+  15          
+  16          unsigned char KeyPress()
+  17          {
+  18   1        unsigned char key = 0xFF;  // khoi tao 1 gia tri khong hop le de kiem tra
+  19   1        
+  20   1        // Kiem tra hang 4
+  21   1        ROW_4 = 0;
+  22   1        if(COL_4 == 0) key = 0;
+  23   1        if(COL_3 == 0) key = 1;
+  24   1        if(COL_2 == 0) key = 2;
+  25   1        if(COL_1 == 0) key = 3;
+  26   1        ROW_4 = 1;
+  27   1      
+  28   1        // Kiem tra hang 3
+  29   1        ROW_3 = 0;
+  30   1        if(COL_4 == 0) key = 7;
+  31   1        if(COL_3 == 0) key = 6;
+  32   1        if(COL_2 == 0) key = 5;
+  33   1        if(COL_1 == 0) key = 4;
+  34   1        ROW_3 = 1;
+  35   1      
+  36   1        // Kiem tra hang 4
+  37   1        ROW_2 = 0;
+  38   1        if(COL_4 == 0) key = 8;
+  39   1        if(COL_3 == 0) key = 9;
+  40   1        if(COL_2 == 0) key = 10;
+  41   1        if(COL_1 == 0) key = 11;
+  42   1        ROW_2 = 1;
+  43   1      
+  44   1        // Kiem tra hang 4
+  45   1        ROW_1 = 0;
+  46   1        if(COL_4 == 0) key = 15;
+  47   1        if(COL_3 == 0) key = 14;
+  48   1        if(COL_2 == 0) key = 13;
+  49   1        if(COL_1 == 0) key = 12;
+  50   1        ROW_1 = 1;
+  51   1        
+  52   1        return key; 
+  53   1      }
+
+C51 COMPILER V9.60.7.0   KEYPAD4X4                                                         10/11/2024 08:23:44 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,12 @@
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\FKRealSvrOcxTcpCSSample.exe.config
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpSample.csproj.ResolveComReference.cache
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\FKRealSvrOcxTcpCSSample.exe
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\FKRealSvrOcxTcpCSSample.pdb
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\AxInterop.AXIMAGELib.dll
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\AxInterop.RealSvrOcxTcpLib.dll
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\bin\Debug\Newtonsoft.Json.dll
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpSample.Form1.resources
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpCSSample.Properties.Resources.resources
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpSample.csproj.GenerateResource.Cache
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpCSSample.exe
+J:\FKAttend\Samples\RealTimeLog\FKRealSvrOCX(TCP)Sample\c#\FKRealSvrOcxTcpSample\obj\x86\Debug\FKRealSvrOcxTcpCSSample.pdb

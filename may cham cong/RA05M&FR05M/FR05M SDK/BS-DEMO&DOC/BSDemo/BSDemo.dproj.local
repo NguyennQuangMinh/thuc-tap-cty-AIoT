@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/07/07 16:11:34.000.250,=C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/10 10:34:32.000.794,=C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/01/13 09:29:59.000.559,=C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/03/27 15:35:18.000.973,=C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2021/03/27 15:35:19.000.324,=C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2021/03/27 15:35:39.000.402,C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\FormUnit1.pas=D:\Delphi\code\BSDemo\FormUnit1.pas</Transaction>
+    <Transaction>2021/03/27 15:35:39.000.402,C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\FormUnit1.dfm=D:\Delphi\code\BSDemo\FormUnit1.dfm</Transaction>
+    <Transaction>2021/03/27 15:35:45.000.930,C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.dfm=D:\Delphi\code\BSDemo\WebModuleUnit1.dfm</Transaction>
+    <Transaction>2021/03/27 15:35:45.000.930,C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas=D:\Delphi\code\BSDemo\WebModuleUnit1.pas</Transaction>
+    <Transaction>2021/03/27 15:35:59.000.358,C:\Users\Coldew\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Delphi\code\BSDemo\BSDemo.dproj</Transaction>
+    <Transaction>2021/03/27 15:40:10.000.379,=D:\Delphi\code\BSDemo\ufrmBSDemo.pas</Transaction>
+    <Transaction>2021/03/27 15:47:02.000.855,D:\Delphi\code\BSDemo\FormUnit1.pas=</Transaction>
+    <Transaction>2021/03/28 20:11:29.000.252,=D:\Delphi\code\BSDemo\superobject.pas</Transaction>
+  </Transactions>
+</BorlandProject>

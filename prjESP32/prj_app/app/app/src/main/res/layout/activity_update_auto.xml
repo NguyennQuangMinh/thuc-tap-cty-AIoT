@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/testmau"
+    tools:context=".dht.auto.UpdateAuto">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:background="@drawable/rounded_corners">
+
+        <TextView
+            android:text="Cài đặt thời gian"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <Button
+                android:layout_weight="1"
+                android:text="Set Date"
+                android:textSize="18sp"
+                android:id="@+id/setDateUpdateAuto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:gravity="center"
+                android:text=""
+                android:textSize="18sp"
+                android:id="@+id/tvsetdateAutoUpdate"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/textview_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <Button
+                android:layout_weight="1"
+                android:text="Set Time"
+                android:textSize="18sp"
+                android:id="@+id/setTimeUpdateAuto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:gravity="center"
+                android:text=""
+                android:textSize="18sp"
+                android:id="@+id/tvSetTimeAutoUpdate"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/textview_background"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:weightSum="2">
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btUpdateAuto"
+                android:text="Update"
+                android:textSize="18sp"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"/>
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btBackAuto001"
+                android:text="Back"
+                android:textSize="18sp"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

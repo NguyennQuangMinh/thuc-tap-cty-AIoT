@@ -1,0 +1,77 @@
+C51 COMPILER V9.60.7.0   DELAY                                                             10/08/2024 11:31:24 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\Delay.obj
+COMPILER INVOKED BY: C:\hoc\8051\Keil_C_v5\C51\BIN\C51.EXE C:\hoc\8051\bai_tap\Library\Delay\Delay.c OPTIMIZE(8,SPEED) B
+                    -ROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Delay.lst) TABS(2) OBJECT(.\Objects\Delay.obj)
+
+line level    source
+
+   1          #include "Delay.h"
+   2          #include "main.h"
+   3          
+   4          // su dung Delay voi thach anh 12Mhz
+   5          #if (FREQ_OSC == 12000000)
+                void Delay_ms(unsigned int t)
+                {
+                  unsigned int x, y;
+                  for(x=0; x<t; x++)
+                  {
+                    for(y=0; y<123; y++);
+                  }
+                }
+              
+              // su dung Delay voi thach anh 11.0592Mhz
+              #elif (FREQ_OSC == 11059200)
+  17            void Delay_ms(unsigned int t)
+  18            {
+  19   1          unsigned int x, y;
+  20   1          for(x=0; x<t; x++)
+  21   1          {
+  22   2            for(y=0; y<113; y++);
+  23   2          }
+  24   1        }
+  25          
+  26          //su dung Delay voi thach anh 8Mhz
+  27          #elif (FREQ_OSC == 8000000)
+                void Delay_ms(unsigned int t)
+                {
+                  unsigned int x, y;
+                  for(x=0; x<t; x++)
+                  {
+                    for(y=0; y<218; y++);
+                  }
+                }
+              
+              //su dung Delay voi thach anh 4Mhz
+              #elif (FREQ_OSC == 4000000)
+                void Delay_ms(unsigned int t)
+                {
+                  unsigned int x, y;
+                  for(x=0; x<t; x++)
+                  {
+                    for(y=0; y<106; y++);
+                  }
+                }
+              
+              #else
+                #error "Khong co ham Delay_ms voi tan so tuong ung"
+                
+              #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.7.0   DELAY                                                             10/08/2024 11:31:24 PAGE 2   
+
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

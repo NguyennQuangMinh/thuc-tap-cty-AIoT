@@ -1,0 +1,116 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              10/02/2024 16:18:59 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\hoc\8051\Keil_C_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+                    -stings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          // nhan k1 thi se nhap nhay led
+   2          // nhan k2 thi se nhap nhay led xen ke
+   3          // nhan k3 chop tat 4 led, 4 led duoi
+   4          // nhan k4 se tat toan bo cac hieu ung
+   5          
+   6          #include "main.h"
+   7          #include "C:\hoc\8051\bai_tap\Library\Delay\Delay.h"
+   8          
+   9          #define led P2
+  10          
+  11          sbit K1 = P3^1;
+  12          sbit K2 = P3^0;
+  13          sbit K3 = P3^2;
+  14          sbit K4 = P3^3;
+  15          
+  16          bit pressFlag = 0;
+  17          
+  18          unsigned int checkPress()
+  19          {
+  20   1        unsigned int i;
+  21   1        for(i=0; i<50; i++)
+  22   1        {
+  23   2          Delay_ms(10);
+  24   2          if(K1==0 || K2 == 0 || K3 == 0 || K4==0)
+  25   2          {
+  26   3            if(pressFlag==0)
+  27   3            {
+  28   4              pressFlag = 1;
+  29   4              return 1;
+  30   4            }
+  31   3          }else pressFlag = 0;
+  32   2        }
+  33   1        return 0;
+  34   1      }
+  35          
+  36          void main()
+  37          {
+  38   1        unsigned char cnt=0;
+  39   1        while(1)
+  40   1        {
+  41   2          // che do 1
+  42   2          if(K1==0)
+  43   2          {
+  44   3            Delay_ms(20); // chong doi phim
+  45   3            while(K1 == 0); // doi cho nguoi dung nha phim ra
+  46   3            led = 0xFF;
+  47   3            while(1)
+  48   3            {
+  49   4              if(checkPress()) break;
+  50   4              led = ~led;
+  51   4            }
+  52   3          }
+  53   2          //che do 2
+  54   2            if(K2==0)
+C51 COMPILER V9.60.7.0   MAIN                                                              10/02/2024 16:18:59 PAGE 2   
+
+  55   2            {
+  56   3              Delay_ms(20); // chong doi phim
+  57   3              while(K2 == 0); // doi cho nguoi dung nha phim ra
+  58   3              led = 0x55;
+  59   3              while(1)
+  60   3              {
+  61   4                if(checkPress()) break;
+  62   4                led = ~led;
+  63   4              }
+  64   3            }
+  65   2            //che do 3
+  66   2            if(K3==0)
+  67   2            {
+  68   3              Delay_ms(20); // chong doi phim
+  69   3              while(K3 == 0); // doi cho nguoi dung nha phim ra
+  70   3              led = 0xF0;
+  71   3              while(1)
+  72   3              {
+  73   4                if(checkPress()) break;
+  74   4                led = ~led;
+  75   4              }
+  76   3            }
+  77   2            //che do 4
+  78   2            if(K4==0)
+  79   2            {
+  80   3              Delay_ms(20); // chong doi phim
+  81   3              while(K4 == 0); // doi cho nguoi dung nha phim ra
+  82   3              led = 0xFF;
+  83   3              while(1)
+  84   3              {
+  85   4                if(checkPress()) break;
+  86   4              }
+  87   3            }
+  88   2          }
+  89   1      }
+  90          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

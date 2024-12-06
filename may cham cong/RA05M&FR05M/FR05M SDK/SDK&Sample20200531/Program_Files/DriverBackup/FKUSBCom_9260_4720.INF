@@ -1,0 +1,60 @@
+
+[Version]
+Signature="$CHICAGO$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%PEFIS%
+LayoutFile=layout.inf
+DriverVer=01/07/2010, 5.1.2600.0
+
+[Manufacturer]
+%MfgName%=FKUSBMfg,NTx86, NTia64, NTamd64
+
+[FKUSBMfg.NTx86]
+%FKUSBCom4720.DeviceDesc%=FKUSBCom4720.Install, USB\VID_601A&PID_0725
+%FKUSBCom9260.DeviceDesc%=FKUSBCom9260.Install, USB\VID_0624&PID_2188
+
+[FKUSBMfg.NTia64]
+%FKUSBCom4720.DeviceDesc%=FKUSBCom4720.Install, USB\VID_601A&PID_0725
+%FKUSBCom9260.DeviceDesc%=FKUSBCom9260.Install, USB\VID_0624&PID_2188
+
+[FKUSBMfg.NTamd64]
+%FKUSBCom4720.DeviceDesc%=FKUSBCom4720.Install, USB\VID_601A&PID_0725
+%FKUSBCom9260.DeviceDesc%=FKUSBCom9260.Install, USB\VID_0624&PID_2188
+
+[FKUSBCom4720.Install.NT]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=FKUSBCom.AddReg
+
+[FKUSBCom9260.Install.NT]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=FKUSBCom.AddReg
+
+[FKUSBCom.AddReg]
+HKR,,DevLoader,,*ntkern                                         ;
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[FKUSBCom4720.Install.NT.Services]
+AddService=usbser,0x00000002,FKUSBCom.AddService
+
+[FKUSBCom9260.Install.NT.Services]
+AddService=usbser,0x00000002,FKUSBCom.AddService
+
+[FKUSBCom.AddService]
+DisplayName=%DriverDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+
+;---------------------------------------------------------------;
+
+[Strings]
+PEFIS="PEFIS Co.,Ltd."
+MfgName="PEFIS Co.,Ltd."
+DriverDesc="PEFIS FingerKeeper series USB Driver (usbser.sys)"
+FKUSBCom4720.DeviceDesc="PEFIS FingerKeeper(USB Serial) Device"
+FKUSBCom9260.DeviceDesc="PEFIS FingerKeeper(USB Serial) Device"

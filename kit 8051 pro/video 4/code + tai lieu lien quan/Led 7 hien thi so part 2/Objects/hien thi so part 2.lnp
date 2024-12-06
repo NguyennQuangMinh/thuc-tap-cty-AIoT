@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\hien thi so part 2" 
+PRINT(".\Listings\hien thi so part 2.m51") RAMSIZE(256) 
